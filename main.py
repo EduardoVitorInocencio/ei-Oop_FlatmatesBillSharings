@@ -1,49 +1,28 @@
-# %%
-class Bill:
-    """
-    Object that contains data about a bill, such as total amount and period of the bill.
-    
-    """
-    
-    def __init__(self, amount, period):
-        self.amount = amount
-        self.period = period
-    
+from flat import Bill, Flatmate
+from reports import PdfReport, FileSharer
+import re
 
-class Flatmate:
-    """
-    Object that contains information about the person who lives in flat and pays a share of the bill.    
-    
-    """
-    
-    def __init__(self, name, days_in_house):
-        self.name = name
-        self.days_in_house = days_in_house
-        
-    def pays(self, bill, flatmate2):
-        weight = self.days_in_house / (self.days_in_house  + flatmate2.days_in_house)
-        self.self_amount = round(bill.amount * weight, 2)
-        return self.self_amount
-    
+# Entrada de dados do usuário
+amount = float(input("Hey user, enter the bill amount: "))
+period = input("What is the bill period? E.g. December 2020: ")
 
-class PdfReport:
-    """
-    Creates a PDffile that contains data about the flamates sub as their names due amount and the periods of the bill
-    
-    """
-    
-    def __init__(self, filename):
-        self.filename = filename
-        
-    def generate(self, flatmate1, flatmate2, bill):
-        pass
-    
-# %%
-the_bill = Bill(amount=120, period="March 2021")
-john = Flatmate(name="John", days_in_house=20)
-marry = Flatmate(name="Marry", days_in_house=25)
+name1 = str(input("What is your name? "))
+days_in_house1 = int(input(f"How many days did {name1} stay in the house during the bill period? "))
 
-print(john.name, john.pays(bill=the_bill, flatmate2=marry))
-print(marry.name, marry.pays(bill=the_bill, flatmate2=john))
+name2 = input("What is the name of the other flatmate? ")
+days_in_house2 = int(input(f"How many days did {name2} stay in the house during the bill period? "))
 
-# %%
+# Criação de objetos
+the_bill = Bill(amount, period)
+flatmate1 = Flatmate(name1, days_in_house1)
+flatmate2 = Flatmate(name2, days_in_house2)
+
+# Impressão no terminal
+print(f"{flatmate1.name} pays: ", round(flatmate1.pays(the_bill, flatmate2), 2))
+print(f"{flatmate2.name} pays: ", round(flatmate2.pays(the_bill, flatmate1), 2))
+
+# Sanitizar nome do arquivo
+safe_period = re.sub(r'\W+', '_', the_bill.period)
+pdf_report = PdfReport(filename=f"{safe_period}.pdf")
+pdf_report.generate(flatmate1, flatmate2, the_bill)
+
