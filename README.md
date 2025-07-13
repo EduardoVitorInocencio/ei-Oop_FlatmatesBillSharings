@@ -49,7 +49,7 @@ Este projeto foi construído usando **OOP** para manter o código organizado, mo
    ```bash
    git clone https://github.com/seu-usuario/flatmates-bill-sharing.git
    cd flatmates-bill-sharing
-````
+    ````
 
 2. **Crie e ative um ambiente virtual (opcional, mas recomendado)**:
 
@@ -61,7 +61,7 @@ Este projeto foi construído usando **OOP** para manter o código organizado, mo
 3. **Instale as dependências**:
 
    ```bash
-   pip install -r requirements.txt
+    pip install -r requirements.txt
    ```
 
 4. **Coloque um ícone `house.png` dentro da pasta `files/`**
@@ -69,27 +69,27 @@ Este projeto foi construído usando **OOP** para manter o código organizado, mo
 5. **Rode o programa**:
 
    ```bash
-   python main.py
+    python main.py
    ```
+
 
 6. **(Opcional)** Configure sua chave da API Filestack no `main.py` para compartilhar o PDF online.
 
----
+
 
 ## 📄 Exemplo de Saída
 
-```
-Hey user, enter the bill amount: 120
-What is the bill period? E.g. December 2020: June 2024
-What is your name? Alice
-How many days did Alice stay in the house during the bill period? 20
-What is the name of the other flatmate? Bob
-How many days did Bob stay in the house during the bill period? 10
-Alice pays: 80.0
-Bob pays: 40.0
-```
+    Hey user, enter the bill amount: 120
+    What is the bill period? E.g. December 2020: June 2024
+    What is your name? Alice
+    How many days did Alice stay in the house during the bill period? 20
+    What is the name of the other flatmate? Bob
+    How many days did Bob stay in the house during the bill period? 10
+    Alice pays: 80.0
+    Bob pays: 40.0
+    
 
----
+
 
 ## 🔧 Requisitos
 
@@ -122,10 +122,3 @@ Este projeto foi inspirado por exercícios de OOP e projetos educacionais sobre 
 ## 📝 Licença
 
 Este projeto é livre para uso educacional e pessoal. Sinta-se à vontade para modificar e reutilizar.
-
-```
-
----
-
-Se quiser, posso criar a versão real desse `README.md` como arquivo para você baixar. Deseja isso?
-```
